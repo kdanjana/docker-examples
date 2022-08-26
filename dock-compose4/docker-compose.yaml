@@ -1,0 +1,21 @@
+version: '3'
+networks:
+  nw1:
+services:
+  db1:
+    image: mysql
+    restart: always
+    container_name: cont1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: somedb
+    volumes:
+      - ./data1:/var/lib/mysql
+    networks:
+      - nw1
+  db2:
+    image: mysql
+    networks:
+      - nw1
+    command: mysql -uroot -proot -hdb1
+    container_name: cont2   

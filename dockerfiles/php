@@ -1,0 +1,5 @@
+FROM php:7.2-cli
+RUN mkdir /mypro
+COPY index.php /mypro
+WORKDIR /mypro
+CMD php index.php

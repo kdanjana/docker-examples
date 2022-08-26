@@ -1,0 +1,23 @@
+version: '3'
+services:
+  phpapp:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8899:80
+    volumes:
+      - ./:/var/www/html
+    container_name: pp
+    networks:
+      - nw1
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    container_name: dbs
+    networks:
+      - nw1
+networks:
+  nw1:

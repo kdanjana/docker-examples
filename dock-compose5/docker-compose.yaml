@@ -1,0 +1,25 @@
+version: '3'
+services:
+  app:
+    image: nginx:alpine
+    ports:
+      - 9090:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - nw1
+      - nw2
+  app1:
+    image: httpd
+    networks:
+      - nw1
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html
+  app2:
+    image: httpd
+    networks:
+      - nw2
+networks:
+  nw1:
+  nw2:
+ 

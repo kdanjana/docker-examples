@@ -1,0 +1,9 @@
+version: '3'
+services:
+  phpapp:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: phpimage
+    ports:
+      - 8080:80
