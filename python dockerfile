@@ -1,2 +1,11 @@
 FROM ubuntu:18.04
 RUN apt-get update && apt-get install python3 -y
+
+
+#on docker host cli
+$docker build -t image1 .
+$docker run --name c1 -itd image1
+#hello.py is present on ur docker host
+$docker exec -i c1 python3 < hello.py
+hello world
+$
